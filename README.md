@@ -1,5 +1,5 @@
 # ABCmart_group10
-This is project submission for APAN5310 group10-Spring2024
+This is the project submission for APAN5310 group10-Spring2024
 
 ## Database Design
 This is the code that shows how we created the ABC Foodmart databse `Group10_Database.sql` .
