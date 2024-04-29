@@ -1,4 +1,6 @@
-1. Store Performance Comparison
+/*
+This query retrieves Store Performance by Stores
+*/
 SELECT
 s.store_name,
 SUM(rs.total_price) AS total_revenue,
@@ -15,7 +17,9 @@ s.store_name
 ORDER BY
 total_revenue DESC;
 
-2. Seasonal Sales Trends by stores
+/*
+This query retrieves Store Seasonal Sales Trends 
+*/
 WITH MonthlyStoreSales AS (
 SELECT
 s.store_name,
@@ -33,7 +37,6 @@ GROUP BY
 s.store_name, month
 )
 SELECT
-
 store_name,
 month,
 monthly_revenue,
@@ -44,7 +47,9 @@ MonthlyStoreSales
 ORDER BY
 store_name, month;
 
-3. Best-Selling Products
+/*
+This query retrieves top 10 Best-Selling Products
+*/
 SELECT
 p.product_name,
 SUM(rs.quantity) AS total_units_sold,
@@ -61,8 +66,9 @@ ORDER BY
 total_units_sold DESC
 LIMIT
 10;
-
-4. Loyalty Customer
+/*
+This query retrieves Top 10 Loyalty Customer
+*/
 SELECT
     c.FirstName,
     c.LastName,
@@ -81,8 +87,9 @@ ORDER BY
 LIMIT
     10;
 
-5. Product Inventory Levels
-
+/*
+This query retrieves Product Inventory Levels
+*/
 SELECT
     s.store_name,
     p.product_name,
@@ -98,7 +105,9 @@ WHERE
 ORDER BY
     si.Quantity;
 
-6. Product Discount Impact on Sales
+/*
+This query retrieves Product Discount Sales Performance
+*/
 WITH discount_sales AS (
     SELECT
         rs.product_id,
@@ -125,7 +134,9 @@ JOIN
 ORDER BY
     ds.total_revenue DESC;
 
-7. Employee vacation count
+/*
+This query retrieves Employee Vacation Days
+*/
 SELECT 
     CONCAT(e.first_name, ' ', e.last_name) AS employee_name,
     s.store_name,
@@ -145,7 +156,9 @@ GROUP BY
 ORDER BY 
     total_vacation_days DESC;
 
-8. Vendor
+/*
+This query retrieves Vendor Performance
+*/
 SELECT
     v.vendor_name,
     COUNT(vd.delivery_id) AS total_deliveries,
@@ -159,7 +172,9 @@ GROUP BY
 ORDER BY
     total_deliveries DESC;
 
-9. Customer Feedback for each store
+/*
+This query retrieves Customer Feedback for each store
+*/
 SELECT 
     s.store_name,
     cf.feedback_text,
@@ -178,8 +193,9 @@ ON
 ORDER BY 
     s.store_name, cf.feedback_date DESC;
 
-
-10. Employees performance
+/*
+This query retrieves Employees performance
+*/
 WITH EmployeeSales AS (
     SELECT 
         e.employee_id,
